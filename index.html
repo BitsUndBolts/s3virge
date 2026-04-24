@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S3 ViRGE - Resource Hub</title>
+    <style>
+        @import url('https://googleapis.com');
+
+        :root {
+            --primary: #334155;    /* Sophisticated Slate */
+            --accent: #3b82f6;     /* Modern Blue */
+            --yt-red: #ef4444;
+            --bg: #0f172a;         /* Dark Navy background */
+            --card-bg: #1e293b;    /* Lighter slate for cards */
+            --text: #f1f5f9;
+            --text-dim: #94a3b8;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--bg);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: linear-gradient(to bottom, #1e293b, #0f172a);
+            color: white;
+            padding: 4rem 1rem;
+            text-align: center;
+            border-bottom: 1px solid #334155;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            letter-spacing: -0.02em;
+        }
+
+        header p {
+            font-family: 'JetBrains+Mono', monospace;
+            color: var(--accent);
+            font-size: 1.1rem;
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        section {
+            background: var(--card-bg);
+            margin-bottom: 2rem;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+            border: 1px solid #334155;
+        }
+
+        h2 {
+            color: white;
+            border-left: 4px solid var(--accent);
+            padding-left: 15px;
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background: rgba(15, 23, 42, 0.5);
+            border-radius: 8px;
+            border: 1px solid #334155;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .video-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: #334155;
+            padding: 1rem;
+            text-decoration: none;
+            color: white;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            border: 1px solid #475569;
+        }
+
+        .icon {
+            width: 24px;
+            height: 24px;
+            fill: var(--yt-red);
+            transition: transform 0.2s ease;
+        }
+
+        .video-link:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .video-link:hover .icon {
+            fill: white;
+            transform: scale(1.1);
+        }
+
+        .links-list a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: bold;
+            border-bottom: 1px solid transparent;
+            transition: border 0.2s;
+        }
+
+        .links-list a:hover {
+            border-bottom: 1px solid var(--accent);
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.95rem;
+            color: var(--text-dim);
+            background: #0f172a;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .sponsor {
+            margin-top: 10px;
+            padding: 20px;
+            border-top: 1px solid #334155;
+            background: rgba(30, 41, 59, 0.5);
+            display: inline-block;
+            border-radius: 12px;
+        }
+
+        .sponsor a {
+            color: #fb923c; /* Porkbun Orange */
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<svg style="display: none;">
+    <symbol id="icon-youtube" viewBox="0 0 24 24">
+        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+    </symbol>
+</svg>
+
+<header>
+    <h1>The S3 ViRGE Resource Hub</h1>
+    <p>Exploring the "Virtual Reality Graphics Engine"</p>
+</header>
+
+<div class="container">
+    
+    <!-- General Info -->
+    <section>
+        <h2>The History</h2>
+        <p>Released in 1995, the S3 ViRGE was one of the first 2D/3D accelerators for the mass market. While often joked about as a "3D Decelerator," its 2D performance was legendary.</p>
+        <div class="stats-grid">
+            <div>
+                <strong>Release Date:</strong> 1995<br>
+                <strong>Era CPUs:</strong> Pentium, Pentium Pro, Cyrix 6x86<br>
+                <strong>Interface:</strong> PCI / VLB
+            </div>
+            <div>
+                <strong>Notable S3D Games:</strong><br>
+                Terminal Velocity, Descent II, Tomb Raider, MechWarrior 2
+            </div>
+        </div>
+    </section>
+
+    <!-- The Pedestal Bit -->
+    <section>
+        <h2>The Pedestal Bit</h2>
+        <p>Is your S3 card outputting a "washed out" or overly bright image? This is likely the "Pedestal Bit" bug. I've documented how to patch the BIOS for various S3 chips in the following videos.</p>
+        <div class="video-grid">
+            <a href="https://youtu.be/w_KSfngbmqo" class="video-link"target="_blank"><svg class="icon"><use xlink:href="#icon-youtube"></use></svg>S3 Trio3D/2x AGP Patch</a>
+            <a href="https://youtu.be/_PiFwgMOmV4" class="video-link"target="_blank"><svg class="icon"><use xlink:href="#icon-youtube"></use></svg>S3 ViRGE Fix</a>
+            <a href="https://youtu.be/Zipw3dsg8Jw" class="video-link" target="_blank"><svg class="icon"><use xlink:href="#icon-youtube"></use></svg>S3 TrioV2 Fix</a>
+        </div>
+        <p class="links-list" style="margin-top: 15px;">
+            Read the deep dive: <a href="https://bitsundbolts.com/2026/04/23/fixing-the-s3-brightness-bug-a-deep-dive-into-the-pedestal-bit-bios-mod/" target="_blank">Fixing the Brightness Bug</a>
+        </p>
+        <p>
+            <strong>BONUS: </strong>All patched BIOS files can be downloaded from my website.            
+        </p>
+    </section>
+
+    <!-- Custom Splash Screen -->
+    <section>
+        <h2>Custom Splash Screens</h2>
+        <p>Learn how to inject a custom 192x160 image into the VGA ROM. This process involves Ghidra for function injection and GIMP for image formatting.</p>
+        <a href="https://youtu.be/_PiFwgMOmV4" class="video-link" target="_blank"><svg class="icon"><use xlink:href="#icon-youtube"></use></svg>Watch the Ghidra/GIMP Tutorial</a>
+    </section>
+
+    <!-- Overclocking -->
+    <section>
+        <h2>Overclocking & BIOS Modding</h2>
+        <p>My ViRGE runs at 70 MHz from the factory! Here is how I use MCLK and BIOS patching to squeeze more performance out of the silicon.</p>
+        <a href="https://youtu.be/_PiFwgMOmV4" class="video-link" target="_blank"><svg class="icon"><use xlink:href="#icon-youtube"></use></svg>Watch the Overclocking Tutorial</a>
+        <div class="links-list">
+            <p>Online Tools: <a href="https://bitsundbolts.com/2026/04/20/s3-virge-bios-toolkit/" target="_blank">S3 ViRGE BIOS Toolkit</a></p>
+        </div>
+    </section>
+
+</div>
+
+<footer>
+    <hr />
+    <p>&copy; 2026 Bits und Bolts.<br />Visit my main site at <a href="https://bitsundbolts.com">bitsundbolts.com</a></p>
+    <div class="sponsor">
+        Domain by <a href="https://porkbun.com/BUB26" target="_blank">Porkbun</a><br />
+        Use code <strong>BITSUNDBOLTS26</strong> for <strong>1 $US OFF</strong><br /> our next domain purchase!
+    </div>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        console.log("S3 ViRGE Page Loaded. Keep it 90s!");
+    });
+</script>
+
+</body>
+</html>
